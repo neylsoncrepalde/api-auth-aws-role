@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minhaapi-deployment
+  labels:
+    app: minhaapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minhaapi
+  template:
+    metadata:
+      labels:
+        app: minhaapi
+    spec:
+      containers:
+      - name: webserverapi
+        image: 539445819060.dkr.ecr.us-east-1.amazonaws.com/apitesteiam:latest
+        ports:
+        - containerPort: 8087
